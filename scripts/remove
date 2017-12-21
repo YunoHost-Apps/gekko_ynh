@@ -28,7 +28,7 @@ final_path=$(ynh_app_setting_get $app final_path)
 #=================================================
 # REMOVE DEPENDENCIES
 #=================================================
-ynh_remove_nodejs
+ynh_remove_nodejs 8
 
 #=================================================
 # REMOVE APP MAIN DIR
@@ -54,5 +54,5 @@ ynh_secure_remove "/etc/nginx/conf.d/$domain.d/htpasswd"
 if yunohost firewall list | grep -q "\- $port$"
 then
 	echo "Close port $port"
-	yunohost firewall disallow $port 2>&1
+	yunohost firewall disallow Both $port 2>&1
 fi
