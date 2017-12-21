@@ -13,7 +13,7 @@ const CONFIG = {
   ui: {
     ssl: true,
     host: 'YNH_DOMAIN',
-    port: 3050,
+    port: 443,
     path: 'YNH_PATH'
   },
   adapter: 'sqlite'

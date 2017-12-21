@@ -1,13 +1,18 @@
-## gekko_ynh
-Gekko is a free and open source Bitcoin TA trading and backtesting platform https://gekko.wizb.it/
+# Gekko
+[![Install Gekko with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=Gekko)<br><br>
 
-# Not ready (Help needed)
+Gekko is a free and open source Bitcoin TA trading and backtesting platform connects to popular Bitcoin exchanges https://gekko.wizb.it/
+
+
 
 ## After installation
-1. Do `cd /var/www/gekko` and run `node gekko --ui` (To-do run the service as daemon)
-2. On visiting the domain there is an error
+Do `cd /var/www/gekko` and run `node gekko --ui` (To-do run the service as daemon)
+OR
+Install PM2 `npm install pm2 -g |` and run gekko with PM2 `pm2 start gekko.js --name gekko -- --ui`. For more information on PM2 visit http://pm2.keymetrics.io/
 
-Disconnected
-Something happened to either Gekko or the connection. Please check the terminal where Gekko is running or your network connection. 
-
-Someone with nginx experince can help with the error.
+## To-do
+- [X] Install script
+- [X] Remove script
+- [ ] Upgrade script
+- [X] Backup and Restore scripts(need testing)
+- [ ] Run as daemon 
