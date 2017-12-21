@@ -1,0 +1,58 @@
+#!/bin/bash
+
+#=================================================
+# GENERIC START
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
+source _common.sh
+source nodejs.sh
+source /usr/share/yunohost/helpers
+
+#=================================================
+# LOAD SETTINGS
+#=================================================
+
+app=$YNH_APP_INSTANCE_NAME
+
+domain=$(ynh_app_setting_get $app domain)
+port=$(ynh_app_setting_get $app port)
+final_path=$(ynh_app_setting_get $app final_path)
+
+#=================================================
+# STANDARD REMOVE
+#=================================================
+
+
+#=================================================
+# REMOVE DEPENDENCIES
+#=================================================
+ynh_remove_nodejs
+
+#=================================================
+# REMOVE APP MAIN DIR
+#=================================================
+
+# Remove the app directory securely
+ynh_secure_remove "$final_path"
+
+#=================================================
+# REMOVE NGINX CONFIGURATION
+#=================================================
+
+# Remove the dedicated nginx config
+ynh_remove_nginx_config
+ynh_secure_remove "/etc/nginx/conf.d/$domain.d/htpasswd"
+
+
+
+#=================================================
+# CLOSE A PORT
+#=================================================
+
+if yunohost firewall list | grep -q "\- $port$"
+then
+	echo "Close port $port"
+	yunohost firewall disallow $port 2>&1
+fi

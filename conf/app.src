@@ -1,0 +1,6 @@
+SOURCE_URL=https://github.com/askmike/gekko/archive/0.5.11.tar.gz
+SOURCE_SUM=387087c17a816e263c03387afff4c8a92adc0ca6f7f23a1e32e10c0e017d08db
+SOURCE_SUM_PRG=sha256sum
+SOURCE_FORMAT=tar.gz
+SOURCE_IN_SUBDIR=
+SOURCE_FILENAME=
